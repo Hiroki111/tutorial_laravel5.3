@@ -10,6 +10,12 @@
                 <div class="panel-body">
                     You are logged in!
                 </div>
+                <div class="adminmenu">
+                    <ul>
+                        <li><a href="/admin/postings">Postings</a></li>
+                        <li><a href="/admin/settings">Settings</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
