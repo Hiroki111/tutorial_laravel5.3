@@ -10,7 +10,7 @@
                 </div>
                 <div class="adminmenu">
                     <ul>
-                        <li><a href="/admin/postings">Postings</a></li>
+                        <li><a href="/admin/entries">Entries</a></li>
                         <li><a href="/admin/settings">Settings</a></li>
                     </ul>
                 </div>

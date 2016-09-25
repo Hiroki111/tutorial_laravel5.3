@@ -8,23 +8,26 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Laravel</title>
+    <title>Laravel Tutorial</title>
 
+    <!-- Scripts -->
+    <script src="/js/app.js"></script>
+    <script src="/js/tinymce.min.js"></script>    
+    <script src="/js/theme.min.js"></script>  
+
+
+      
     <script src="http://alexgorbatchev.com/pub/sh/current/scripts/shCore.js" type="text/javascript"></script>
     <script src="http://alexgorbatchev.com/pub/sh/current/scripts/shAutoloader.js" type="text/javascript"></script>
     <script src="http://alexgorbatchev.com/pub/sh/current/scripts/shBrushPhp.js" type="text/javascript"></script>
     <script src="http://alexgorbatchev.com/pub/sh/current/scripts/shBrushXml.js" type="text/javascript"></script>
-
+    <script>tinymce.init({ selector:'textarea' });</script>
 
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
     <link href="/css/shCore.css" rel="stylesheet" type="text/css" />
     <link href="/css/shThemeDefault.css" rel="stylesheet" type="text/css" />   
-    <!-- Scripts -->
-    <!--  <script type="/text/javascript" src="/js/sh/current/scripts/shCore.js"></script>  -->
-    <!--  <script type="/text/javascript" src="/js/sh/current/scripts/shAutoloader.js"></script> -->
-    <!--  <script type="/text/javascript" src="/js/sh/current/scripts/shBrushPhp.js"></script>  -->
-    <!--  <script type="/text/javascript" src="/js/sh/current/scripts/shBrushXml.js"></script>  -->
+    
     <script>
     window.Laravel = <?php echo json_encode([
         'csrfToken' => csrf_token(),
@@ -49,7 +52,7 @@
                 <a class="navbar-brand" href="{{ url('/') }}">
                     Laravel
                 </a>
-                <a href="/admin/postings">Postings</a>
+                <a href="/admin/entries">Entries</a>
                 <a href="/admin/settings">Settings</a>
             </div>
 
@@ -93,7 +96,6 @@
 
 @yield('content')
 
-<!-- Scripts -->
-<script src="/js/app.js"></script>
+
 </body>
 </html>

@@ -17,8 +17,12 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/admin', 'AdminPageController@index');
-Route::get('/admin/postings', 'AdminPageController@postings');
-Route::get('/admin/settings', 'AdminPageController@settings');
+Route::get('/admin', 'AdminEntryController@index');
+Route::get('/admin/entries', 'AdminEntryController@entries');
+Route::get('/admin/entries/create', 'AdminEntryController@create');
+
+
+//Create another controller dedicated to setting operations
+// Route::get('/admin/settings', 'AdminPageController@settings');
 
 
