@@ -10,15 +10,27 @@
 
     <title>Laravel</title>
 
+    <script src="http://alexgorbatchev.com/pub/sh/current/scripts/shCore.js" type="text/javascript"></script>
+    <script src="http://alexgorbatchev.com/pub/sh/current/scripts/shAutoloader.js" type="text/javascript"></script>
+    <script src="http://alexgorbatchev.com/pub/sh/current/scripts/shBrushPhp.js" type="text/javascript"></script>
+    <script src="http://alexgorbatchev.com/pub/sh/current/scripts/shBrushXml.js" type="text/javascript"></script>
+
+
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
-
+    <link href="/css/shCore.css" rel="stylesheet" type="text/css" />
+    <link href="/css/shThemeDefault.css" rel="stylesheet" type="text/css" />   
     <!-- Scripts -->
+    <!--  <script type="/text/javascript" src="/js/sh/current/scripts/shCore.js"></script>  -->
+    <!--  <script type="/text/javascript" src="/js/sh/current/scripts/shAutoloader.js"></script> -->
+    <!--  <script type="/text/javascript" src="/js/sh/current/scripts/shBrushPhp.js"></script>  -->
+    <!--  <script type="/text/javascript" src="/js/sh/current/scripts/shBrushXml.js"></script>  -->
     <script>
     window.Laravel = <?php echo json_encode([
         'csrfToken' => csrf_token(),
         ]); ?>
     </script>
+    
 </head>
 <body>
     <nav class="navbar navbar-default navbar-static-top">
