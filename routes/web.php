@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+	return view('welcome');
 });
 
 Auth::routes();
@@ -22,6 +22,9 @@ Route::get('/admin', 'AdminEntryController@home');
 Route::get('/admin/entries', 'AdminEntryController@index');
 Route::get('/admin/entries/create', 'AdminEntryController@create');
 Route::post('/admin/entries', 'AdminEntryController@store');
+Route::get('/admin/entries/{id}/edit', 'AdminEntryController@edit');
+Route::put('/admin/entries/{id}', 'AdminEntryController@update');
+Route::delete('/admin/entries/{id}', 'AdminEntryController@destroy');
 
 
 //Create another controller dedicated to setting operations

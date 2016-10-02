@@ -66,8 +66,29 @@ class AdminEntryController extends Controller
         ->with('message', "New : ".$this->request->input('title', '') . ' was added');
     }
 
-    // public function settings()
-    // {
-    //     return view('auth.settings');
-    // }
+    public function edit($id)
+    {
+        return view('auth.entries.edit', [
+            'entry' => $this->entry->find($id),
+            ]);
+    }
+
+    public function update($id)
+    {
+        $editedEntry                 = $this->entry->find($id);
+        $editedEntry->title          = $this->request->input('title', '');
+        $editedEntry->category       = $this->request->input('category', '');
+        $editedEntry->content        = $this->request->input('content', '');
+        $editedEntry->save();
+        return redirect('/admin/entries/' . $id . '/edit')->with('message', 'Edit was saved');
+    }
+
+    public function destroy($id)
+    {
+        $entry = $this->entry->find($id);
+        
+        $this->entry->destroy($id);
+        return redirect('/admin/entries');
+    }
+
 }

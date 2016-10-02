@@ -14,6 +14,18 @@ require('laravel-elixir-vue');
  */
 
 elixir(mix => {
-    mix.sass('app.scss')
-       .webpack('app.js');
+   // mix.sass('app.scss')
+    //   .webpack('app.js');
+});
+
+// elixir(function(mix) {
+//      mix.webpack(
+//         './resources/assets/js/admin/*.js',
+//         './public/js/admin'
+//     );
+// //     mix.copy('vendor/foo/bar.css', 'public/css/bar.css');
+// });
+
+gulp.task('scripts', function() {
+  console.log("A gulp task called scripts");
 });
