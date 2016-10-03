@@ -26,6 +26,9 @@ Route::get('/admin/entries/{id}/edit', 'AdminEntryController@edit');
 Route::put('/admin/entries/{id}', 'AdminEntryController@update');
 Route::delete('/admin/entries/{id}', 'AdminEntryController@destroy');
 
+Route::get('/admin/settings', 'AdminSettingController@index');
+Route::put('/admin/settings/update', 'AdminSettingController@update');
+
 
 //Create another controller dedicated to setting operations
 // Route::get('/admin/settings', 'AdminPageController@settings');

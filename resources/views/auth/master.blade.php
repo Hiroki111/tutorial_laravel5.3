@@ -14,9 +14,9 @@
     <script src="/js/app.js"></script>
     <script src="/js/tinymce.min.js"></script>    
     <script src="/js/theme.min.js"></script>  
+    <script src="/js/admin/entries.js"></script>
 
-
-      
+    <!-- Code Highligter-->
     <script src="http://alexgorbatchev.com/pub/sh/current/scripts/shCore.js" type="text/javascript"></script>
     <script src="http://alexgorbatchev.com/pub/sh/current/scripts/shAutoloader.js" type="text/javascript"></script>
     <script src="http://alexgorbatchev.com/pub/sh/current/scripts/shBrushPhp.js" type="text/javascript"></script>
@@ -25,6 +25,7 @@
 
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
+    <!-- Code Highligter-->
     <link href="/css/shCore.css" rel="stylesheet" type="text/css" />
     <link href="/css/shThemeDefault.css" rel="stylesheet" type="text/css" />   
     
@@ -49,8 +50,8 @@
                 </button>
 
                 <!-- Branding Image -->
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    Laravel
+                <a class="navbar-brand" href="{{ url('/admin') }}">
+                    Laravel Tutorial - Backend
                 </a>
                 <a href="/admin/entries">Entries</a>
                 <a href="/admin/settings">Settings</a>
