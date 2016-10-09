@@ -25,6 +25,7 @@
 
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
+    <link href="/css/admin.css" rel="stylesheet">
     <!-- Code Highligter-->
     <link href="/css/shCore.css" rel="stylesheet" type="text/css" />
     <link href="/css/shThemeDefault.css" rel="stylesheet" type="text/css" />   
@@ -37,6 +38,7 @@
     
 </head>
 <body>
+    @if (!Auth::guest())
     <nav class="navbar navbar-default navbar-static-top">
         <div class="container">
             <div class="navbar-header">
@@ -51,51 +53,52 @@
 
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="{{ url('/admin') }}">
-                    Laravel Tutorial - Backend
-                </a>
-                <a href="/admin/entries">Entries</a>
-                <a href="/admin/settings">Settings</a>
-            </div>
+                   Laravel Tutorial - Backend
+               </a>
+           </div>
+           <a href="/admin/entries">Entries</a>
+           <a href="/admin/settings">Settings</a>
+           <div class="collapse navbar-collapse" id="app-navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <!-- Authentication Links -->
+                <li>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                        {{ Auth::user()->name }} <span class="caret"></span>
+                    </a>
 
-            <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                <!-- Left Side Of Navbar -->
-                <ul class="nav navbar-nav">
-                    &nbsp;
-                </ul>
-
-                <!-- Right Side Of Navbar -->
-                <ul class="nav navbar-nav navbar-right">
-                    <!-- Authentication Links -->
-                    @if (Auth::guest())
-                    <li><a href="{{ url('/login') }}">Login</a></li>
-                    <li><a href="{{ url('/register') }}">Register</a></li>
-                    @else
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                            {{ Auth::user()->name }} <span class="caret"></span>
+                    <li  class="dropdown">
+                        <a href="{{ url('/logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            Logout
                         </a>
 
-                        <ul class="dropdown-menu" role="menu">
-                            <li>
-                                <a href="{{ url('/logout') }}"
-                                onclick="event.preventDefault();
-                                document.getElementById('logout-form').submit();">
-                                Logout
-                            </a>
-
-                            <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
-                                {{ csrf_field() }}
-                            </form>
-                        </li>
-                    </ul>
+                        <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                            {{ csrf_field() }}
+                        </form>
+                    </li>
                 </li>
-                @endif
             </ul>
         </div>
     </div>
 </nav>
+@endif
 
-@yield('content')
+<div class="container">
+    @if (Auth::guest())
+    @yield('content')
+    @else
+    <div id="adminmenuback"></div>
+    <!-- <div class="adminMenu">
+        <ul>
+            <li><a href="/admin/entries">Entries</a></li>
+            <li><a href="/admin/settings">Settings</a></li>
+        </ul>
+    </div> -->
+    <div class="pageContent">
+        @yield('content')
+    </div>
+    <div class="clear"></div>
+    @endif
+</div>
 
 
 </body>

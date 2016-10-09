@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/admin', 'AdminEntryController@home');
+Route::get('/admin', 'AdminEntryController@index');
 
 Route::get('/admin/entries', 'AdminEntryController@index');
 Route::get('/admin/entries/create', 'AdminEntryController@create');

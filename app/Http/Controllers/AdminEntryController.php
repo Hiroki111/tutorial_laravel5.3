@@ -51,7 +51,7 @@ class AdminEntryController extends Controller
     {
 
         $this->validate($this->request, [
-            'title' => 'bail|required|unique:entries|max:50',
+            'title' => 'bail|required|unique:entries|max:255',
             'content' => 'required',
             ]);
 

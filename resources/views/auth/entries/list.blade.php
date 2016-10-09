@@ -16,10 +16,10 @@
 	</tr>
 	@foreach($entries as $entry)
 	<tr>
-		<td>{{$entry->title}}</td>
-		<td>{{$entry->category}}</td>
-		<td>{!!$entry->content!!}</td>
-		<td>
+		<td >{{$entry->title}}</td>
+		<td >{{$entry->category}}</td>
+		<td class="container">{!!$entry->content!!}</td>
+		<td >
 			<a class="btn btn-link"  href={{"/admin/entries/".$entry->id."/edit"}}>Edit</a>
 			<form method="POST" action="/admin/entries/{{$entry->id}}" onsubmit=" return confirmationForDeletingEntry('{{$entry->title}}')">
 				{!! csrf_field() !!}
