@@ -25,7 +25,7 @@
 
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
-    <link href="/css/admin.css" rel="stylesheet">
+    <link href="/css/admin/admin.css" rel="stylesheet">
     <!-- Code Highligter-->
     <link href="/css/shCore.css" rel="stylesheet" type="text/css" />
     <link href="/css/shThemeDefault.css" rel="stylesheet" type="text/css" />   
@@ -42,15 +42,6 @@
     <nav class="navbar navbar-default navbar-static-top">
         <div class="container">
             <div class="navbar-header">
-
-                <!-- Collapsed Hamburger -->
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
-                    <span class="sr-only">Toggle Navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="{{ url('/admin') }}">
                    Laravel Tutorial - Backend
@@ -87,12 +78,12 @@
     @yield('content')
     @else
     <div id="adminmenuback"></div>
-    <!-- <div class="adminMenu">
+    <div class="adminMenu">
         <ul>
             <li><a href="/admin/entries">Entries</a></li>
             <li><a href="/admin/settings">Settings</a></li>
         </ul>
-    </div> -->
+    </div>
     <div class="pageContent">
         @yield('content')
     </div>

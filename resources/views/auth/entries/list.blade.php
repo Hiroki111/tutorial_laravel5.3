@@ -9,17 +9,21 @@
 
 <table cellspacing="0" cellpadding="0" border="0" class="table table-striped">
 	<tr>
-		<th style="width: 80px;">Title</th>
-		<th style="width: 80px;">Category</th>
+		<th style="width: 150px;">Title</th>
+		<th style="width: 150px;">Category</th>
 		<th>Content</th>
 		<th></th>
 	</tr>
 	@foreach($entries as $entry)
 	<tr>
-		<td >{{$entry->title}}</td>
-		<td >{{$entry->category}}</td>
-		<td class="container">{!!$entry->content!!}</td>
-		<td >
+		<td>{{$entry->title}}</td>
+		<td>{{$entry->category}}</td>
+		<td class="entry-container">
+			<div>
+				{!!$entry->content!!}
+			</div>
+		</td>
+		<td>
 			<a class="btn btn-link"  href={{"/admin/entries/".$entry->id."/edit"}}>Edit</a>
 			<form method="POST" action="/admin/entries/{{$entry->id}}" onsubmit=" return confirmationForDeletingEntry('{{$entry->title}}')">
 				{!! csrf_field() !!}

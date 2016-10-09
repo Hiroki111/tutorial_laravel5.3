@@ -19,11 +19,6 @@ elixir(mix => {
 });
 
 
-// gulp.task('scripts', function() {
-//   console.log("A gulp task called scripts");
-// });
-
-
 gulp.task('css', function() {
     gulp.src('./resources/assets/css/**/*.css').pipe(gulp.dest("./public/css"));
 });
