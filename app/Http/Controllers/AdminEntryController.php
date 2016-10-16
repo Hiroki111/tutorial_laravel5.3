@@ -30,11 +30,6 @@ class AdminEntryController extends Controller
         return view('auth.home');
     }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         return view('auth.entries.list', [
@@ -55,9 +50,13 @@ class AdminEntryController extends Controller
             'content' => 'required',
             ]);
 
+        $url = '/'.$this->cleanStringForUrl($this->request->input('title', ''));
+
+       
 
         $this->entry->create([
             'title' => $this->request->input('title', ''),
+            'url' => $url,
             'category'      => $this->request->input('category', ''),
             'content'       => $this->request->input('content', ''),
             ]);
@@ -73,22 +72,37 @@ class AdminEntryController extends Controller
             ]);
     }
 
-    public function update($id)
+    
+    public function cleanStringForUrl($string)
     {
-        $editedEntry                 = $this->entry->find($id);
-        $editedEntry->title          = $this->request->input('title', '');
-        $editedEntry->category       = $this->request->input('category', '');
-        $editedEntry->content        = $this->request->input('content', '');
-        $editedEntry->save();
-        return redirect('/admin/entries/' . $id . '/edit')->with('message', 'Edit was saved');
-    }
+     $string = str_replace(' ', '_', $string); 
+     $string = preg_replace('/[^A-Za-z0-9\-]/', '-', $string); 
+     return preg_replace('/-+/', '-', $string);
+ }
 
-    public function destroy($id)
-    {
-        $entry = $this->entry->find($id);
-        
-        $this->entry->destroy($id);
-        return redirect('/admin/entries');
-    }
+
+ public function update($id)
+ {
+
+    $url = '/'.$this->cleanStringForUrl($this->request->input('title', ''));
+
+
+    $editedEntry                 = $this->entry->find($id);
+    $editedEntry->title          = $this->request->input('title', '');
+    $editedEntry->url = $url;
+    $editedEntry->category       = $this->request->input('category', '');
+    $editedEntry->content        = $this->request->input('content', '');
+    $editedEntry->save();
+
+    return redirect('/admin/entries/' . $id . '/edit')->with('message', 'Edit was saved');
+}
+
+public function destroy($id)
+{
+    $entry = $this->entry->find($id);
+
+    $this->entry->destroy($id);
+    return redirect('/admin/entries');
+}
 
 }

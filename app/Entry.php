@@ -10,7 +10,7 @@ class Entry extends Model
 	use SoftDeletes;
 
 	protected $table = 'entries'; 
-	protected $fillable = ['title', 'content', 'category'];
+	protected $fillable = ['title', 'url','content', 'category'];
 	protected $dates = ['deleted_at'];   
 	public $timestamps = true;
 }

@@ -12,7 +12,7 @@
 
     <!-- Scripts -->
     <script src="/js/app.js"></script>
-    <script src="/js/tinymce.min.js"></script>    
+     <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
     <script src="/js/theme.min.js"></script>  
     <script src="/js/admin/entries.js"></script>
 
@@ -77,13 +77,6 @@
     @if (Auth::guest())
     @yield('content')
     @else
-    <div id="adminmenuback"></div>
-    <div class="adminMenu">
-        <ul>
-            <li><a href="/admin/entries">Entries</a></li>
-            <li><a href="/admin/settings">Settings</a></li>
-        </ul>
-    </div>
     <div class="pageContent">
         @yield('content')
     </div>
