@@ -11,8 +11,6 @@
 |
 */
 
-Route::get('/', 'PageController@index');
-
 Auth::routes();
 
 Route::get('/admin', 'AdminEntryController@index');
@@ -26,6 +24,9 @@ Route::delete('/admin/entries/{id}', 'AdminEntryController@destroy');
 
 Route::get('/admin/settings', 'AdminSettingController@index');
 Route::put('/admin/settings/update', 'AdminSettingController@update');
+
+Route::get('/', 'PageController@index');
+Route::get('/{url}', 'PageController@show');
 
 
 //Create another controller dedicated to setting operations

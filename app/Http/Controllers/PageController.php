@@ -25,4 +25,18 @@ class PageController extends Controller
 			'currentEntry' => $this->entry->find(1),
 			]);
 	}
+
+	public function show($url)
+	{
+		$entry = $this->entry->where('url', '/'.$url)->first();
+
+		if(empty($entry)){
+			$entry = $this->entry->find(1);
+		}
+
+		return view('www.index', [
+			'entries' => $this->entry->all(),
+			'currentEntry' => $entry,
+			]);
+	}
 }

@@ -12,7 +12,7 @@
 
     <!-- Scripts -->
     <script src="/js/app.js"></script>
-     <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+    <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
     <script src="/js/theme.min.js"></script>  
     <script src="/js/admin/entries.js"></script>
 
@@ -21,11 +21,11 @@
     <script src="http://alexgorbatchev.com/pub/sh/current/scripts/shAutoloader.js" type="text/javascript"></script>
     <script src="http://alexgorbatchev.com/pub/sh/current/scripts/shBrushPhp.js" type="text/javascript"></script>
     <script src="http://alexgorbatchev.com/pub/sh/current/scripts/shBrushXml.js" type="text/javascript"></script>
-    <script>tinymce.init({ selector:'textarea' });</script>
 
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
     <link href="/css/admin/admin.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine">
     <!-- Code Highligter-->
     <link href="/css/shCore.css" rel="stylesheet" type="text/css" />
     <link href="/css/shThemeDefault.css" rel="stylesheet" type="text/css" />   

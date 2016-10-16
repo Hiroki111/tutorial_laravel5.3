@@ -9,20 +9,26 @@
 
 </head>
 <body>
-    <div class="top">
+    <div class="header">
         Laravel Tutorial
+    </div>
+    <div class="subheader">
+        A free comprehensive tutorial series for Laravel 5.3
     </div>
     <div class="left">
         <ul>
-            <li><a class="active" href="/">Home</a></li>
             @foreach($entries as $entry)
+            @if($currentEntry->url == $entry->url)
+            <li><a class="active" href="{{$entry->url}}">{{$entry->title}}</a></li>
+            @else
             <li><a href="{{$entry->url}}">{{$entry->title}}</a></li>
+            @endif
             @endforeach
         </ul>
     </div>
     <div class="main">
-        {!!$currentEntry->content!!}
-        
+        {!!$currentEntry->content!!} 
     </div>
+
 </body>
 </html>
