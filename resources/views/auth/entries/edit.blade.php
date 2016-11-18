@@ -21,7 +21,21 @@
 </div>
 @endif
 
+<form action="/admin/entries/uploadPicture" method="POST" enctype="multipart/form-data">
+  <input type="file" name="image" accept="image/*">
+  <input type="submit" value="Upload Image">
+</form>
+
 @if(isset($entry))
+<!-- <div class="row">
+  <div class="col-sm-9">
+    <form action="/admin/entries/uploadPicture/{{$entry->id}}">
+      <input type="file" name="pic" accept="image/*">
+      <input type="submit" value="Upload">
+    </form>  
+  </div>
+</div>
+-->
 <form action="/admin/entries/{{$entry->id}}" method="POST" enctype="multipart/form-data">
   <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
   <input type="hidden" name="_method" value="PUT">

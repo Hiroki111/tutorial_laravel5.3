@@ -13,7 +13,7 @@
         Laravel Tutorial
     </div>
     <div class="subheader">
-        A free comprehensive tutorial series for Laravel 5.3
+        Free & comprehensive tutorial series for Laravel 5.3
     </div>
     <div class="left">
         <ul>

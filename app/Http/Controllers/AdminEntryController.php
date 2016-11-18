@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Entry;
+use Intervention\Image\Facades\Image;
+
 
 
 class AdminEntryController extends Controller
@@ -42,6 +44,34 @@ class AdminEntryController extends Controller
         return view('auth.entries.edit');
     }
 
+    public function uploadPicture()
+    {
+        if ($this->request->hasFile('image')) {
+            $this->saveImage();
+            $message = "New image has been uploaded";
+        } else {
+
+            $message = "No image found!";
+        }
+
+        return redirect('/admin/entries/create')
+        ->with('message',$message);
+    }
+
+    public function saveImage()
+    {
+        $image                = Image::make($this->request->file('image'));
+
+        if ($width > 300 || $height > 300) {
+            $image->resize(300, 300, function ($constraint) {
+                $constraint->aspectRatio();
+            });
+        }
+
+        $image->save(public_path(env('IMAGE_DIRECTORY') . date("Y/m/d:h:i") . '_image.jpg'));
+    }
+
+
     public function store()
     {
 
@@ -52,7 +82,7 @@ class AdminEntryController extends Controller
 
         $url = '/'.$this->cleanStringForUrl($this->request->input('title', ''));
 
-       
+
 
         $this->entry->create([
             'title' => $this->request->input('title', ''),
@@ -60,6 +90,8 @@ class AdminEntryController extends Controller
             'category'      => $this->request->input('category', ''),
             'content'       => $this->request->input('content', ''),
             ]);
+
+        
 
         return redirect('/admin/entries/create')
         ->with('message', "New : ".$this->request->input('title', '') . ' was added');
@@ -75,14 +107,14 @@ class AdminEntryController extends Controller
     
     public function cleanStringForUrl($string)
     {
-     $string = str_replace(' ', '_', $string); 
-     $string = preg_replace('/[^A-Za-z0-9\-]/', '-', $string); 
-     return preg_replace('/-+/', '-', $string);
- }
+       $string = str_replace(' ', '_', $string); 
+       $string = preg_replace('/[^A-Za-z0-9\-]/', '-', $string); 
+       return preg_replace('/-+/', '-', $string);
+   }
 
 
- public function update($id)
- {
+   public function update($id)
+   {
 
     $url = '/'.$this->cleanStringForUrl($this->request->input('title', ''));
 
@@ -92,6 +124,9 @@ class AdminEntryController extends Controller
     $editedEntry->url = $url;
     $editedEntry->category       = $this->request->input('category', '');
     $editedEntry->content        = $this->request->input('content', '');
+
+    
+
     $editedEntry->save();
 
     return redirect('/admin/entries/' . $id . '/edit')->with('message', 'Edit was saved');
