@@ -15,6 +15,8 @@
     <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
     <script src="/js/theme.min.js"></script>  
     <script src="/js/admin/entries.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <!-- Code Highligter-->
     <script src="http://alexgorbatchev.com/pub/sh/current/scripts/shCore.js" type="text/javascript"></script>
@@ -42,26 +44,17 @@
     <nav class="navbar navbar-default navbar-static-top">
         <div class="container">
             <div class="navbar-header">
-                <!-- Branding Image -->
-                <a class="navbar-brand" href="{{ url('/admin') }}">
-                   Laravel Tutorial - Backend
-               </a>
-           </div>
-           <a href="/admin/entries">Entries</a>
-           <a href="/admin/settings">Settings</a>
-           <div class="collapse navbar-collapse" id="app-navbar-collapse">
+                <a class="navbar-brand" href="{{ url('/admin') }}">Laravel Tutorial - Backend</a>
+            </div>
             <ul class="nav navbar-nav navbar-right">
-                <!-- Authentication Links -->
                 <li>
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                        {{ Auth::user()->name }} <span class="caret"></span>
+                        {{ Auth::user()->name }} 
                     </a>
-
                     <li  class="dropdown">
                         <a href="{{ url('/logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                             Logout
                         </a>
-
                         <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
                             {{ csrf_field() }}
                         </form>
@@ -69,20 +62,25 @@
                 </li>
             </ul>
         </div>
-    </div>
-</nav>
-@endif
-
-<div class="container">
-    @if (Auth::guest())
-    @yield('content')
-    @else
-    <div class="pageContent">
-        @yield('content')
-    </div>
-    <div class="clear"></div>
+    </nav>
     @endif
-</div>
+    <div class="left">
+        <ul>
+            <li><a href="/admin/entries">Entries</a></li>
+            <li><a href="/admin/images">Images</a></li>            
+            <li><a href="/admin/settings">Settings</a></li>
+        </ul>
+    </div>
+    <div class="container">
+        @if (Auth::guest())
+        @yield('content')
+        @else
+        <div class="main">
+            @yield('content')
+        </div>
+        <div class="clear"></div>
+        @endif
+    </div>
 
 
 </body>

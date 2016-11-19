@@ -10,6 +10,6 @@ class Image extends Model
     protected $fillable = [
         'title',
         'description',
-        'image'
+        'filePath',
     ];
 }

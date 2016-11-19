@@ -21,8 +21,12 @@ Route::post('/admin/entries', 'AdminEntryController@store');
 Route::get('/admin/entries/{id}/edit', 'AdminEntryController@edit');
 Route::put('/admin/entries/{id}', 'AdminEntryController@update');
 Route::put('/admin/entries/uploadPicture', 'AdminEntryController@uploadPicture');
-
 Route::delete('/admin/entries/{id}', 'AdminEntryController@destroy');
+
+Route::get('/admin/images', 'AdminImageController@index');
+Route::post('/admin/images', 'AdminImageController@store');
+
+
 
 Route::get('/admin/settings', 'AdminSettingController@index');
 Route::put('/admin/settings/update', 'AdminSettingController@update');

@@ -21,11 +21,6 @@
 </div>
 @endif
 
-<form action="/admin/entries/uploadPicture" method="POST" enctype="multipart/form-data">
-  <input type="file" name="image" accept="image/*">
-  <input type="submit" value="Upload Image">
-</form>
-
 @if(isset($entry))
 <!-- <div class="row">
   <div class="col-sm-9">
@@ -50,17 +45,40 @@
     <div class="row">
       <div class="col-sm-9">
         <div class="control-group">
-          <ul>
+          <div>
             @if(isset($entry))
-            <li>Title<input type="text" name="title" value="{{$entry->title}}"></li>
-            <li>Category<input type="text" name="category" value="{{$entry->category}}"></li>
-            <li>Content<textarea rows="8" cols="40" name="content">{{$entry->content}}</textarea></li>
+            Title<input type="text" name="title" value="{{$entry->title}}"><br>
+            Category<input type="text" name="category" value="{{$entry->category}}"><br>
+            Content<button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">See Images</button>
+            <textarea rows="8" cols="40" name="content">{{$entry->content}}</textarea>
             @else
-            <li>Title<input type="text" name="title"></li>
-            <li>Category<input type="text" name="category"></li>
-            <li>Content<textarea rows="8" cols="40" name="content"></textarea></li>
+            Title<input type="text" name="title"><br>
+            Category<input type="text" name="category"><br>
+            Content<button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">See Images</button>
+            <textarea rows="8" cols="40" name="content"></textarea>
             @endif
-          </ul>
+          </div>
+          <!-- Modal -->
+          <div id="myModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+
+              <!-- Modal content-->
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">Modal Header</h4>
+                </div>
+                <div class="modal-body">
+                  <p>Some text in the modal.</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          
           <div class="control-group">
             <input class="submit btn btn-primary pull-right" type="submit" value="Save"/>
             <a class="cancel btn btn-primary pull-right" href="/admin/entries">Cancel</a>

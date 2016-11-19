@@ -16,3 +16,69 @@ td.entry-container { height: 40px; }
     width: 100px;
     background-color: blue;
 }
+
+.header {
+	position:absolute;
+	left:0; right:0; top: 0;
+	height: 70px;
+	text-align: center;
+	font-size: 350%;
+	font-weight: bold;
+	font-family: 'Open Sans', sans-serif;
+	background-color: MediumAquamarine;
+	color: Black;
+	
+}
+.subheader {
+	position:absolute;
+	left:0; right:0; top: 70px;
+	height: 30px;
+	text-align: center;
+	font-size: 100%;
+	font-weight: bold;
+	font-style: italic;
+	font-family: 'Open Sans', sans-serif;
+	background-color: MediumAquamarine;
+	color: white;
+	 text-shadow:
+            3px 3px 0 #000,
+            -1px -1px 0 #000,
+            1px -1px 0 #000,
+            -1px  1px 0 #000,
+            1px  1px 0 #000;
+}
+.left {
+	position:absolute;
+	left:0; top:100px; bottom: 0;
+	width: 200px;
+}
+.main {
+	position: absolute;
+	left:200px; top:100px; right:100px; bottom:0;
+	font-family:Arial, Helvetica, sans-serif;
+	line-height: 1.5;
+}
+
+.left ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	width: 150px;
+}
+
+.left li a {
+	display: block;
+	color: #000;
+	padding: 8px 16px;
+	text-decoration: none;
+}
+
+.left li a.active {
+	background-color: FireBrick;
+	color: white;
+}
+
+.left li a:hover:not(.active) {
+	background-color: #555;
+	color: white;
+}
