@@ -8,13 +8,35 @@ td.entry-container { height: 40px; }
 	text-decoration: none;
 }
 
+#deleteListDiv {
+	display:none;
+}
+
+#imageSubmitContainer {
+	float: left;
+}
+
+#imageDivContainer {
+	float: block;
+}
+
+#deleteForm {
+	display:none;
+}
+
+.imageDiv{
+	width:300px;
+	height:300px;
+	float: left;
+}
+
 #adminmenuback {
 	position: fixed;
-    top: 0;
-    bottom: -120px;
-    z-index: 1;
-    width: 100px;
-    background-color: blue;
+	top: 0;
+	bottom: -120px;
+	z-index: 1;
+	width: 100px;
+	background-color: blue;
 }
 
 .header {
@@ -40,12 +62,12 @@ td.entry-container { height: 40px; }
 	font-family: 'Open Sans', sans-serif;
 	background-color: MediumAquamarine;
 	color: white;
-	 text-shadow:
-            3px 3px 0 #000,
-            -1px -1px 0 #000,
-            1px -1px 0 #000,
-            -1px  1px 0 #000,
-            1px  1px 0 #000;
+	text-shadow:
+	3px 3px 0 #000,
+	-1px -1px 0 #000,
+	1px -1px 0 #000,
+	-1px  1px 0 #000,
+	1px  1px 0 #000;
 }
 .left {
 	position:absolute;

@@ -25,7 +25,7 @@ Route::delete('/admin/entries/{id}', 'AdminEntryController@destroy');
 
 Route::get('/admin/images', 'AdminImageController@index');
 Route::post('/admin/images', 'AdminImageController@store');
-Route::delete('/admin/images/{id}', 'AdminImageController@destroy');
+Route::post('/admin/images/delete', 'AdminImageController@deleteImages');
 
 
 Route::get('/admin/settings', 'AdminSettingController@index');

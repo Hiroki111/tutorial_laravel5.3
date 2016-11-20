@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Carbon\Carbon;
 use App\Http\Requests;
 use App\Image;
+use File;
 
 use Guzzle\Tests\Plugin\Redirect;
 use Illuminate\Support\Facades\Input;
@@ -53,10 +54,16 @@ class AdminImageController extends Controller
 		return redirect('/admin/images')->with('message', 'Saved.');
 	}
 
-	public function destroy($id)
+	public function deleteImages()
 	{
-		$image = Image::find($id);
-		$image->destroy($id);
+		$Ids = $this->request->input('imageIds');
+
+		foreach ($Ids as $id) {
+			$image = Image::find($id);
+			File::delete(public_path().'/image/'.$image->filePath);
+			$image->destroy($id);
+		}
+		
 		return redirect('/admin/images')
 		->with('message', 'Image deleted');
 	}
