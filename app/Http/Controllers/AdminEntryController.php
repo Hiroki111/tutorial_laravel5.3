@@ -107,14 +107,14 @@ class AdminEntryController extends Controller
     
     public function cleanStringForUrl($string)
     {
-       $string = str_replace(' ', '_', $string); 
-       $string = preg_replace('/[^A-Za-z0-9\-]/', '-', $string); 
-       return preg_replace('/-+/', '-', $string);
-   }
+     $string = str_replace(' ', '_', $string); 
+     $string = preg_replace('/[^A-Za-z0-9\-]/', '-', $string); 
+     return preg_replace('/-+/', '-', $string);
+ }
 
 
-   public function update($id)
-   {
+ public function update($id)
+ {
 
     $url = '/'.$this->cleanStringForUrl($this->request->input('title', ''));
 

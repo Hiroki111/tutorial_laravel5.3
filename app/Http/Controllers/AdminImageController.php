@@ -50,7 +50,15 @@ class AdminImageController extends Controller
 		}
 		$image->save();
 		//$image->create();
-		return redirect('/admin/images');
+		return redirect('/admin/images')->with('message', 'Saved.');
+	}
+
+	public function destroy($id)
+	{
+		$image = Image::find($id);
+		$image->destroy($id);
+		return redirect('/admin/images')
+		->with('message', 'Image deleted');
 	}
 
 }

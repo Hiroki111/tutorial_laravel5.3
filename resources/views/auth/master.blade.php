@@ -15,6 +15,7 @@
     <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
     <script src="/js/theme.min.js"></script>  
     <script src="/js/admin/entries.js"></script>
+    <script src="/js/admin/images.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
