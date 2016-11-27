@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Validator;
 use Carbon\Carbon;
 use App\Http\Requests;
 use App\Image;
@@ -33,24 +34,27 @@ class AdminImageController extends Controller
 
 	public function store(Request $request)
 	{
-		$image = new Image();
-		
-		$image->title = $request->input('title');
-		$image->description ="";
+
+		$validator = Validator::make($request->all(), [
+			'title' => 'required|max:255',
+			]);
+
+		if ($validator->fails()) {
+			return redirect('/admin/images')->with('message', 'Title was missing!');
+		}
 
 		if(!empty($this->request->file('image'))) {
+			$image = new Image();			
+			$image->title = $request->input('title');
+			$image->description ="";
 			$file = $this->request->file('image');
-            //getting timestamp
 			$timestamp = str_replace([' ', ':'], '-', Carbon::now()->toDateTimeString());
+			$image->filePath = $timestamp. '-' .$this->cleanStringForUrl($image->title);
 
-			$name = $timestamp. '-' .$file->getClientOriginalName();
-
-			$image->filePath = $name;
-
-			$file->move(public_path().'/image/', $name);
+			$file->move(public_path().'/image/', $image->filePath);
 		}
 		$image->save();
-		//$image->create();
+
 		return redirect('/admin/images')->with('message', 'Saved.');
 	}
 
@@ -66,6 +70,13 @@ class AdminImageController extends Controller
 		
 		return redirect('/admin/images')
 		->with('message', 'Image deleted');
+	}
+
+	public function cleanStringForUrl($string)
+	{
+		$string = str_replace(' ', '_', $string); 
+		$string = preg_replace('/[^A-Za-z0-9\-]/', '-', $string); 
+		return preg_replace('/-+/', '-', $string);
 	}
 
 }

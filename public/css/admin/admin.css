@@ -104,3 +104,21 @@ td.entry-container { height: 40px; }
 	background-color: #555;
 	color: white;
 }
+
+.modal {
+	width: 90%;
+    height: 90%;
+    overflow: auto; 
+}
+
+#entry-model-box {
+	width: 90%;
+    height: 90%;
+    overflow: auto; 
+}
+
+.modal-dialog, .modal-body {
+	width: 90%;
+    height: 90%;
+    overflow: auto; 
+}

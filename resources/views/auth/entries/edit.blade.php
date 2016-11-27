@@ -22,15 +22,6 @@
 @endif
 
 @if(isset($entry))
-<!-- <div class="row">
-  <div class="col-sm-9">
-    <form action="/admin/entries/uploadPicture/{{$entry->id}}">
-      <input type="file" name="pic" accept="image/*">
-      <input type="submit" value="Upload">
-    </form>  
-  </div>
-</div>
--->
 <form action="/admin/entries/{{$entry->id}}" method="POST" enctype="multipart/form-data">
   <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
   <input type="hidden" name="_method" value="PUT">
@@ -66,13 +57,18 @@
               <div class="modal-content">
                 <div class="modal-header">
                   <button type="button" class="close" data-dismiss="modal">&times;</button>
-                  <h4 class="modal-title">Modal Header</h4>
+                  <h4 class="modal-title">Stored images</h4>
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 </div>
                 <div class="modal-body">
-                  <p>Some text in the modal.</p>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  @foreach($images as $image)
+                  <div id="image_{{$image->id}}" class="imageDiv">
+                    <img src="/image/{{$image->filePath}}" 
+                    style="max-width:270px; max-height:200px;"/>
+                    <p>{{$image->title}}</p>
+                    <input type="text" value="/image/{{$image->filePath}}" size="35"></input>
+                  </div>
+                  @endforeach
                 </div>
               </div>
 
