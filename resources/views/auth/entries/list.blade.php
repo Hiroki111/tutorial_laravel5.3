@@ -12,7 +12,7 @@
 		<th style="width: 150px;">Title</th>
 		<th style="width: 150px;">Category</th>
 		<th>Content</th>
-		<th></th>
+		<th style="width: 150px;"></th>
 	</tr>
 	@foreach($entries as $entry)
 	<tr>

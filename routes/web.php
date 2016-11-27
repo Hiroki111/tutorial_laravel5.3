@@ -18,7 +18,10 @@ Route::get('/admin', 'AdminEntryController@index');
 Route::get('/admin/entries', 'AdminEntryController@index');
 Route::get('/admin/entries/create', 'AdminEntryController@create');
 Route::post('/admin/entries', 'AdminEntryController@store');
-Route::get('/admin/entries/{id}/edit', 'AdminEntryController@edit');
+Route::get('/admin/entries/{id}/edit', [
+	 'as' => 'edit_entry', 
+	 'uses' => 'AdminEntryController@edit'
+	 ]);
 Route::put('/admin/entries/{id}', 'AdminEntryController@update');
 //Route::put('/admin/entries/uploadPicture', 'AdminEntryController@uploadPicture');
 Route::delete('/admin/entries/{id}', 'AdminEntryController@destroy');

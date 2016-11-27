@@ -1,6 +1,7 @@
-td.entry-container > div { width: 100%; height: 150px; overflow:hidden; }
+td.entry-container > div { width: 500px; height: 150px; overflow:hidden; }
 
 td.entry-container { height: 40px; }
+
 
 .adminMenu ul li a:hover {
 	color: #fff;

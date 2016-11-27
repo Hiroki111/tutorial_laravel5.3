@@ -135,7 +135,8 @@ class AdminEntryController extends Controller
 
         $editedEntry->save();
 
-        return redirect()->route('/admin/entries/' . $id . '/edit', [
+        return redirect()->route('edit_entry', [
+            'id' => $id,
             'images' => $this->image->all(),
             ])
         ->with('message', 'Edit was saved');
@@ -149,11 +150,11 @@ class AdminEntryController extends Controller
 
         $this->entry->destroy($id);
 
-        return redirect()->route('/admin/entries', [
-            'images' => $this->image->all(),
-            ]);
+        // return redirect()->route('/admin/entries', [
+        //     'images' => $this->image->all(),
+        //     ]);
 
-        //return redirect('/admin/entries');
+        return redirect('/admin/entries');
     }
 
 }
